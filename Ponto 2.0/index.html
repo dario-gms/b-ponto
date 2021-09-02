@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="_css/style.css">
 </head>
 
-<body onload="carregar()">
+<body onload="load()">
     <header>
         <h1>Controle de Ponto</h1>
     </header>
@@ -19,15 +19,14 @@
             Bom trabalho!
         </div>
         <div id="foto">
-            <img id="imagem" src="_imagens/manhã.png" alt="Foto do dia">
+            <img id="image" src="_imagens/manha.png" alt="Foto do dia">
         </div>
         <div>
-            <input type="submit" onclick="marcar()" value="Marcar Ponto" />
-            <p id="inicio"></p>
-        </div>
+            <input type="submit" onclick="mark()" value="Marcar Ponto" />
+            <p id="start"></p>
         <div>
-            <input type="submit" onclick="encerrar()" value="Encerrar Expediente"/>
-            <p id="final"></p>
+            <input type="submit" onclick="terminate()" value="Encerrar Expediente"/>
+            <p id="finish"></p>
         </div>
         <div>
             <button><a href="historico.html"> Histórico </a> </button>
