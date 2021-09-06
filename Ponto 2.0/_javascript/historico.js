@@ -1,26 +1,10 @@
 var records = [
     {
         local: moment.locale('pt-br'),
-        date: moment().format('DD/MM/YYYY'),
-        entrance: moment().format('LTS'),
-        exit: moment().format('LTS'),
-        status: moment().format('dddd')
-    },
-    {
-        local: moment.locale('pt-br'),
-        date: moment().format('DD/MM/YYYY'),
-        entrance: moment().format('LTS'),
-        exit: moment().format('LTS'),
-        status: moment().format('dddd')
-    },
-    {
-        local: moment.locale('pt-br'),
-        date: moment().format('DD/MM/YYYY'),
-        entrance: moment().format('LTS'),
-        exit: moment().format('LTS'),
-        status: moment().format('ddd')
-    }
-    
+        date: getDate(),
+        entrance: localStorage.getItem('start'),
+        exit: localStorage.getItem('finish')
+    }    
 ];
 
 function addTable() {
@@ -32,6 +16,14 @@ function addTable() {
 }
 addTable();
 
+function getDate() {
+    let result = localStorage.getItem('date');
+    if (!result) {
+        result = "N/A";
+    }
+    return result;
+}
+
 function addLine(record) {
     let tr = document.createElement('tr');
     let tdDate = addCell(record, "date");
@@ -40,8 +32,6 @@ function addLine(record) {
     tr.appendChild(tdEntrada);
     let tdSaida = addCell(record, "exit");
     tr.appendChild(tdSaida);
-    let tdStatus = addCell(record, "status");
-    tr.appendChild(tdStatus);
     return tr;
 }
 
