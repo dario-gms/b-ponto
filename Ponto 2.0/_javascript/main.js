@@ -25,8 +25,9 @@ function mark() {
         localStorage.setItem('date', moment().format('L'));
         localStorage.setItem('start', moment().format('LT'));
         localStorage.setItem('mark', `Expediente iniciado às <strong>${localStorage.getItem('start')}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`)
-    start = `Expediente iniciado às <strong>${localStorage.getItem('start')}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`;
-    document.getElementById("start").innerHTML = localStorage.getItem('mark');
+        if (localStorage.mark) {
+            document.getElementById('start').innerHTML = localStorage.mark;
+        }
 }
 
 function terminate() {
