@@ -1,14 +1,18 @@
-var records = [
-    {
-        local: moment.locale('pt-br'),
-        date: getDate(),
-        entrance: localStorage.getItem('start'),
-        exit: localStorage.getItem('finish')
-    }    
-];
+// var records = [
+//     {
+//         local: moment.locale('pt-br'),
+//         date: getDate(),
+//         entrance: localStorage.getItem('start'),
+//         exit: localStorage.getItem('finish')
+//     }   
+// ];
+
+let retrievedObject = localStorage.getItem('testObject');
+let records = JSON.parse(retrievedObject);
 
 function addTable() {
     let tBody = document.getElementById("minhaTabela");
+    
     for (record in records) {
         let tr = addLine(records[record]);
         tBody.appendChild(tr);

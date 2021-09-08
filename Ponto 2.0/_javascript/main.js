@@ -22,12 +22,41 @@ function load() {
     }
 }
 function mark() {
-        localStorage.setItem('date', moment().format('L'));
-        localStorage.setItem('start', moment().format('LT'));
-        localStorage.setItem('mark', `Expediente iniciado às <strong>${localStorage.getItem('start')}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`)
-        if (localStorage.mark) {
-            document.getElementById('start').innerHTML = localStorage.mark;
+        //primeiro recuperar o que já existe
+        let retrievedObject = localStorage.getItem('testObject');
+        var records = JSON.parse(retrievedObject)
+
+
+        let testObject = {
+            date: moment().format('L'),
+            entrance: moment().format('LT'),
+            message: `Expediente iniciado às <strong>${localStorage.getItem('start')}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`
+        };
+
+        if (records) {
+            records.push(testObject);
+        } else {
+            records = [testObject]
         }
+
+
+        // var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+
+        // Put the object into storage
+        localStorage.setItem('testObject', JSON.stringify(records));
+        
+        // Retrieve the object from storage
+        
+        // console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+
+
+
+
+        // localStorage.setItem('reg', reg);
+        // if (localStorage.mark) {
+        //     document.getElementById('start').innerHTML = localStorage.mark;
+        // }
 }
 
 function terminate() {
