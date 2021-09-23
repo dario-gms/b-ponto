@@ -1,11 +1,18 @@
-// var records = [
+// var recordssss = [
 //     {
 //         local: moment.locale('pt-br'),
 //         date: getDate(),
-//         entrance: localStorage.getItem('start'),
-//         exit: localStorage.getItem('finish')
-//     }   
+//         // entrance: localStorage.getItem('start'),
+//         // exit: localStorage.getItem('finish')
+//         mark: localStorage.getItem('start')
+//     },
+//     {
+//         local: moment.locale('pt-br'),
+//         date: getDate(),
+//         mark: localStorage.getItem('start')
+//     } 
 // ];
+
 
 let retrievedObject = localStorage.getItem('testObject');
 let records = JSON.parse(retrievedObject);

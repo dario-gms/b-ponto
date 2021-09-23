@@ -1,11 +1,11 @@
 moment.locale('pt-br')
-var hour = moment().format('LT')
-var date = new Date();
-var time = date.getHours();
-var user = 'Dario';
+let hour = moment().format('LT')
+let date = new Date();
+let time = date.getHours();
+let user = 'Dario';
 function load() {
-    var msg = window.document.getElementById('msg');
-    var img = window.document.getElementById('image');
+    let msg = window.document.getElementById('msg');
+    let img = window.document.getElementById('image');
     msg.innerHTML = `Agora são <strong>${hour}</strong>.`;
     if (time >= 0 && time < 12) {
         img.src = '_imagens/manha.png';
@@ -22,55 +22,30 @@ function load() {
     }
 }
 function mark() {
-        //primeiro recuperar o que já existe
-        let retrievedObject = localStorage.getItem('testObject');
-        var records = JSON.parse(retrievedObject)
-
-
-        let testObject = {
-            date: moment().format('L'),
-            entrance: moment().format('LT'),
-            message: `Expediente iniciado às <strong>${localStorage.getItem('start')}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`
-        };
-
-        if (records) {
-            records.push(testObject);
-        } else {
-            records = [testObject]
-        }
-
-
-        // var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-
-        // Put the object into storage
-        localStorage.setItem('testObject', JSON.stringify(records));
-        
-        // Retrieve the object from storage
-        
-        // console.log('retrievedObject: ', JSON.parse(retrievedObject));
-
-
-
-
-
-        // localStorage.setItem('reg', reg);
-        // if (localStorage.mark) {
-        //     document.getElementById('start').innerHTML = localStorage.mark;
-        // }
+    document.getElementById("start").innerHTML = `Expediente iniciado às <strong>${hour}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`;
+    localStorage.setItem('startTime', moment().format('LT'))
+    histPersist()
 }
 
-function terminate() {
-    var reply = confirm("Deseja encerrar o expediente?");
-    localStorage.setItem('finish', moment().format('LT'));
-    if (reply) {
-        finish = `Expediente encerrado às <strong>${localStorage.getItem('finish')}</strong>. \nBom descanso <strong>${user}</strong>!`;
+function histPersist() {
+    let retrievedObject = localStorage.getItem('testObject');
+    var records = JSON.parse(retrievedObject)
+
+    let testObject = {
+        date: moment().format('L'),
+        entrance: localStorage.getItem('startTime'),
+        exit: localStorage.getItem('endTime')
+    };
+    if (records) {
+        records.push(testObject);
+    } else {
+        records = [testObject]
     }
-    else {
-        alert("Ação cancelada!");
-        finish = "Tenha um bom trabalho.";
-    }
-    document.getElementById("finish").innerHTML = finish;
+    localStorage.setItem('testObject', JSON.stringify(records));
 }
 
-
-
+function terminate(){
+    let endHour = moment().format('LT');
+    document.getElementById("finish").innerHTML = `Expediente encerrado às <strong>${endHour}</strong>. \nBom descanso <strong>${user}</strong>!`;
+    localStorage.setItem('endTime', moment().format('LT'))
+}
