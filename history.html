@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dário Gomes">
-    <title>Controle de ponto</title>
-    <link rel="stylesheet" href="_css/style.css">
+    <title>Historico</title>
+    <link rel="stylesheet" href="_css/history.css">
 </head>
 
 <body>
-
+    <a href="index.html"><button id="back">Voltar</button></a>
     <header>
         <h1>Histórico</h1>
         <h2 id="dayWeek">Setembro 2021.</h2>
@@ -20,14 +20,11 @@
         <div>
             <table>
                 <thead>
-                    <tr>
-                        <td id="principal">Data</td>
-                        
-                        <!-- <td id="principal">Saída</td> -->
-                    </tr>
-                    <td id="principal">Marcações Realizadas</td>
+                    <!-- Marcações Realizadas -->
                 </thead>
-                <tbody id="minhaTabela">
+                <tbody >
+                    <tr id="minhaTabela"></tr></tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -36,6 +33,6 @@
 </body>
 <footer>&copy; Desenvolvido por Dário Gomes </footer>
 <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
-<script src="_javascript/historico.js"></script>
+<script src="_javascript/history.js"></script>
 
 </html>

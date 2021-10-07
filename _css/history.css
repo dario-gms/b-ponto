@@ -1,27 +1,29 @@
-body{
-    background: rgb(3, 17, 36);
-    font: normal 15pt arial;
-}
-
 header{
     color: white;
     text-align: center;
 
 }
 
+body{
+    background: rgb(2, 29, 66);
+    font: normal 15pt arial;
+}
+#back{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 15pt;
+    border-radius: 20px;
+}
+
 section {
     background: white;
     border-radius: 10px;
-    padding: 10px;
-    width: auto;
-    margin: 100px;
+    padding: 15px;
+    width: 300px;
+    margin: auto;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.568);
      
-}
-
-div {
-    text-align: center;
-    padding: auto;
 }
 
 table {
@@ -29,20 +31,8 @@ table {
     margin: auto;
 }
 
-tr {
-    border-style: groove;
-    
-}
-
-#principal {
-    border-style: solid;
-    padding: auto;
-    font-style: oblique;
-    font-weight: bolder;       
-}
-
 #minhaTabela {
-    font-size: 25px;
+    font-size: 20px;
     padding: auto;
     font-style: italic;
 }
@@ -52,6 +42,6 @@ footer {
     color: white;
     text-align: center;
     font-style: italic;
-
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
-

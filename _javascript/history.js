@@ -14,10 +14,16 @@ let records = JSON.parse(retrievedObject);
 
 function addTable() {
     let tBody = document.getElementById("minhaTabela");
-    
+    // let count = 0;
     for (record in records) {
-        let tr = addLine(records[record]);
-        tBody.appendChild(tr);
+        // count += 1
+
+        // if (count > 4) {
+
+        // } else {
+            let tr = addLine(records[record]);
+            tBody.appendChild(tr);
+        // }
     }
 }
 addTable();
@@ -31,22 +37,18 @@ function getDate() {
 }
 
 function addLine(record) {
-    let tr = document.createElement('td');
-    // let tdDate = addCell(record, "date");
-    // tr.appendChild(tdDate);
+    let tr = document.createElement('tr');
     let tdEntrada = addCell(record, "entrance");
     tr.appendChild(tdEntrada);
-    // let tdSaida = addCell(record, "exit");
-    // tr.appendChild(tdSaida);
     return tr;
 }
 
 function addCell(record, nameItem) {
-    // let border = '2px solid black';
-    let td = document.createElement('button');
+    let border = '1px solid black';
+    let td = document.createElement('table');
     let date = record[nameItem];
     td.appendChild(document.createTextNode(date));
-    // td.style.border = border;
+    td.style.border = border;
     return td;
 }
 

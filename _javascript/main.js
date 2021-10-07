@@ -31,15 +31,15 @@ function mark() {
 
 
         let testObject = {
-            date: moment().format('L'),
-            entrance: moment().format('LT'),
+            // date: moment().format('L'),
+            entrance: moment().format("DD/MM"+' - '+'LT'),
         };
 
         if (records) {
             records.push(testObject);
         } else {
             records = [testObject]
-        }
+        };
 
 
         // var testObject = { 'one': 1, 'two': 2, 'three': 3 };
