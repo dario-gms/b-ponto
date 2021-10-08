@@ -14,16 +14,9 @@ let records = JSON.parse(retrievedObject);
 
 function addTable() {
     let tBody = document.getElementById("minhaTabela");
-    // let count = 0;
     for (record in records) {
-        // count += 1
-
-        // if (count > 4) {
-
-        // } else {
             let tr = addLine(records[record]);
             tBody.appendChild(tr);
-        // }
     }
 }
 addTable();
@@ -51,4 +44,3 @@ function addCell(record, nameItem) {
     td.style.border = border;
     return td;
 }
-

@@ -6,20 +6,23 @@ var user = 'Dario';
 function load() {
     var msg = window.document.getElementById('msg');
     var img = window.document.getElementById('image');
+    let path = "./main/_imagens/";
+    
     msg.innerHTML = `Agora são <strong>${hour}</strong>.`;
     if (time >= 0 && time < 12) {
-        img.src = '_imagens/manha.png';
+        img.src = path + '/manha.png';
         document.body.style.background = '#1fa64c';
         msg.innerHTML += '<p>Tenha um bom dia.</p>';
     } else if (time >= 12 && time < 18) {
-        img.src = '_imagens/tarde.png';
+        img.src = path + 'tarde.png';
         document.body.style.background = '#6693c4';
         msg.innerHTML += '<p>Tenha uma boa tarde!</p>';
         if (time >=12 && time < 14){
             msg.innerHTML += 'Que tal uma pausa para o almoço?'
         }
     } else {
-        img.src = '_imagens/noite.png';
+
+        img.src = path + 'noite.png';
         document.body.style.background = '#0e151d';
         msg.innerHTML += '<p>Tenha uma boa noite.</p>';
     }
