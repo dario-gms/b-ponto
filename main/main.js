@@ -7,8 +7,9 @@ function load() {
     var msg = window.document.getElementById('msg');
     var img = window.document.getElementById('image');
     let path = "./main/_imagens/";
-    
+
     msg.innerHTML = `Agora são <strong>${hour}</strong>.`;
+
     if (time >= 0 && time < 12) {
         img.src = path + '/manha.png';
         document.body.style.background = '#1fa64c';
