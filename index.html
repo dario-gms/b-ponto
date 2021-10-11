@@ -1,62 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<title>Controle de Ponto </title>
-		<meta charset="utf-8">
-		<meta name="author" content="Dário Gomes">
-		<meta name="description" content="Site Ponto">
-		<meta name="keywords" content="ponto, marcarção de ponto, relógio, controle de ponto">
-		<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-		<script type="text/javascript">
-			jQuery(window).load(function($){
-				atualizaRelogio();
-			});
-		</script>
-	</head>
-	<body>
-		<div class="form-group">
-    		<label class="col-md-4 control-label" for="IniciarTarefa" id="acao"></label>
-    		<div class="col-md-4">
-        		<button id="marcar" style="font-size: 100px; font-family: Arial, Helvetica, sans-serif; margin-left: 150px; margin-top: 70px;">Marcar Ponto</button>
-				<br>
-			</div>
-		</div>
 
-	<div>
-	<button id="mostrar" style="font-size: 100px; font-family: Arial, Helvetica, sans-serif; margin-left: 250px; margin-top: 100px; margin-bottom: 100px;"><a href="historico.html">Histórico</a></button>
-	</div>
-		<div>
-			<output id="data" style="font-family: 'arial black', 'avant garde'; color: 2b5b2f; font-size: 100px; margin-left: 100px;"></output>
-		</div>
-		<div>
-			<output id="hora" style="font-family: 'arial black', 'avant garde'; font-size: 100px; margin-left: 130px;"></output>				
-		</div>			
-	</body>
-	<script>
-		function atualizaRelogio(){ 
-			var momentoAtual = new Date();
-			
-			var vhora = momentoAtual.getHours();
-			var vminuto = momentoAtual.getMinutes();
-			var vsegundo = momentoAtual.getSeconds();
-			
-			var vdia = momentoAtual.getDate();
-			var vmes = momentoAtual.getMonth() + 1;
-			var vano = momentoAtual.getFullYear();
-			
-			if (vdia < 10){ vdia = "0" + vdia;}
-			if (vmes < 10){ vmes = "0" + vmes;}
-			if (vhora < 10){ vhora = "0" + vhora;}
-			if (vminuto < 10){ vminuto = "0" + vminuto;}
-			if (vsegundo < 10){ vsegundo = "0" + vsegundo;}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dário Gomes">
+    <title>Controle de ponto</title>
+    <link rel="stylesheet" href="main/main.css">
+</head>
 
-			dataFormat = vdia + " / " + vmes + " / " + vano;
-			horaFormat = vhora + " : " + vminuto + " : " + vsegundo;
-
-			document.getElementById("data").innerHTML = dataFormat;
-			document.getElementById("hora").innerHTML = horaFormat;
-
-			setTimeout("atualizaRelogio()",1000);
-		}
-	</script>	
+<body onload="load()">
+    <header>
+        <h1>Controle de Ponto</h1>
+    </header>
+    <section>
+        <div id="msg">
+            Bom trabalho!
+        </div>
+        <div id="foto">
+            <img id="image" src="./main/_imagens/manha.png" alt="Foto do dia">
+        </div>
+        <div>
+            <input type="submit" onclick="mark()" value="Marcar Ponto"/>
+            <p id="start"></p>
+        <!-- <div>
+            <input type="submit" onclick="terminate()" value="Encerrar Expediente"/>
+            <p id="finish"></p>
+        </div> -->
+        <div>
+            <a href="history/history.html"><button> Histórico </button></a>
+        </div>
+    </section>
+</body>
+<footer>&copy; Desenvolvido por Dário Gomes </footer>
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="main/main.js"></script>
 </html>
