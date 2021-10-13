@@ -1,19 +1,38 @@
-var records = [
-    Date(),
-    Date(),
-    Date(),
-    Date(),
-    Date(),
-    Date(),
-];
+// moment().locale('pt-br');
+// moment().format('l');
 
-moment.locale('pt-br')
-let dayWeek = moment().format('LL');
+var records = [
+    getDateToView(new Date(2014,10,1,8,4,2)),
+    getDateToView(new Date(2014,10,1,12,4,2)),
+    getDateToView(new Date(2014,10,1,13,4,2)),
+    getDateToView(new Date(2014,10,1,18,4,2)),
+
+    getDateToView(new Date(2015,10,1,8,4,2)),
+    getDateToView(new Date(2015,10,1,12,4,2)),
+    getDateToView(new Date(2015,10,1,13,4,2)),
+    getDateToView(new Date(2015,10,1,18,4,2)),
+]
+.sort()
+;
+
+function getDateToView(date) {
+    return moment(date).format("HH:mm");
+};
+
+// let dayWeek = moment().format('l');
 document.getElementById("dayWeek").innerHTML = dayWeek;
 let retrievedObject = localStorage.getItem('testObject');
 // let records = JSON.parse(retrievedObject);
 
+function prepareData() {
+    let min = Math.min(...records);
+    console.log("------------");
+    console.log(min)
+};
+prepareData()
+
 function addTable() {
+    records.sort()
     console.log(records);
     let tBody = document.getElementById("myTable");
     let tr = addLine(records);
@@ -36,7 +55,7 @@ function addLine(marks) {
     // console.log(marks)
     let tr = document.createElement('tr');
     let td = document.createElement('td');
-    td.appendChild(document.createTextNode("data x"));
+    td.appendChild(document.createTextNode("data x/x/xx"));
     tr.appendChild(td);
     for (index in marks) {
         let td = addCell(marks[index]);
