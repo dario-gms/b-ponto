@@ -21,56 +21,30 @@ function load() {
         msg.innerHTML += '<p>Tenha uma boa noite.</p>';
     }
 }
+
+ let newMark = {
+    date: moment().format('L'),
+    entrance: moment().format('LT'),
+    exit: moment().format('LT'),
+};
+
 function mark() {
-        //primeiro recuperar o que já existe
-        let retrievedObject = localStorage.getItem('testObject');
-        var records = JSON.parse(retrievedObject)
-
-
-        let testObject = {
-            date: moment().format('L'),
-            entrance: moment().format('LT'),
-            message: `Expediente iniciado às <strong>${localStorage.getItem('start')}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`
-        };
-
-        if (records) {
-            records.push(testObject);
-        } else {
-            records = [testObject]
-        }
-
-
-        // var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-
-        // Put the object into storage
-        localStorage.setItem('testObject', JSON.stringify(records));
-        
-        // Retrieve the object from storage
-        
-        // console.log('retrievedObject: ', JSON.parse(retrievedObject));
-
-
-
-
-
-        // localStorage.setItem('reg', reg);
-        // if (localStorage.mark) {
-        //     document.getElementById('start').innerHTML = localStorage.mark;
-        // }
+    //primeiro recuperar o que já existe
+    let retrievedString = localStorage.getItem('testObject'); // recuperou a string
+    var records = JSON.parse(retrievedString) // transformou num obj
+    var start = `Expediente iniciado às <strong>${moment().format('LT')}</strong>. \nTenha um bom trabalho <strong>${user}</strong>!`
+    if (records) { // verificou se já existe
+        records.push(newMark); // caso exista, adiciou mais um lá dentro
+    } else {
+        records = [newMark]; // caso n exista, cria um array já com o novo valor
+    }
+    document.getElementById("start").innerHTML = start;
+    let recordsString =  JSON.stringify(records); // transformação de obj em string
+    localStorage.setItem('testObject', recordsString);
 }
 
-function terminate() {
-    var reply = confirm("Deseja encerrar o expediente?");
+function terminate() {    
     localStorage.setItem('finish', moment().format('LT'));
-    if (reply) {
-        finish = `Expediente encerrado às <strong>${localStorage.getItem('finish')}</strong>. \nBom descanso <strong>${user}</strong>!`;
-    }
-    else {
-        alert("Ação cancelada!");
-        finish = "Tenha um bom trabalho.";
-    }
+    let finish = `Expediente encerrado às <strong>${localStorage.getItem('finish')}</strong>. \nBom descanso <strong>${user}</strong>!`;
     document.getElementById("finish").innerHTML = finish;
 }
-
-
-
